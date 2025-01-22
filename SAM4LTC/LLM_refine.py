@@ -10,7 +10,7 @@ def ask_gpt_question(sentence, triple):
     # openai.api_key = 'sk-ZdrxA'
     openai.api_key = 'your api key'
     response = openai.chat.completions.create(
-        model='gpt-3.5-turbo',
+        model='gpt-4-0613',
         temperature=0,
         messages=[{"role": "system",
                    "content": ""
