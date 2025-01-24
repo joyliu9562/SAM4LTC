@@ -13,6 +13,8 @@ from torch.utils.data.dataloader import DataLoader
 from model import BertBasedClassifier
 import torch
 import torch.optim as optim
+import wanbd
+
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
