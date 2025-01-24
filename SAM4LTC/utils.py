@@ -18,7 +18,7 @@ config = Config
 
 warnings.filterwarnings('ignore')
 tokenizer = AutoTokenizer.from_pretrained(config.model_path)
-nlp = spacy.load('en_core_web_sm')
+nlp = spacy.load('en_core_web_trf')
 
 
 def get_verbs_from_sentence(doc):
@@ -166,9 +166,9 @@ def seed_everything(seed=88):
 def contrastive_loss(temp, embedding, label):
     """
     calculate the contrastive loss
-    这里的embedding指的是一个batch
+
     """
-    # 首先计算WMD矩阵用来代替余弦相似度矩阵
+    # wmd to replace similarity
     # cosine_sim = get_wmd_dist_in_batch(embedding)
     cosine_sim = cosine_similarity(embedding, embedding)
     dis = cosine_sim[~np.eye(cosine_sim.shape[0], dtype=bool)].reshape(cosine_sim.shape[0], -1)
